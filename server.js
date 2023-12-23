@@ -9,11 +9,10 @@ import knex from 'knex';
 // const cors = require('cors');
 // const knex = require('knex');
 
-import handleRegister from './controllers/register.js';
-import handleSignin from './controllers/signin.js';
-import handleProfileGet from './controllers/profile.js';
-import handleImage from './controllers/image.js';
-import handleApiCall from './controllers/image.js';
+import {handleRegister} from './controllers/register.js';
+import {handleSignin} from './controllers/signin.js';
+import {handleProfileGet} from './controllers/profile.js';
+import { handleApiCall, handleImage } from './controllers/image.js';
 
 // const register = require('./controllers/register');
 // const signin = require('./controllers/signin');
@@ -22,12 +21,14 @@ import handleApiCall from './controllers/image.js';
     
 const db = knex({
     client: 'pg',
-    connection: {
-      host : '127.0.0.1',
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+      host : process.env.DATABASE_HOST,
       port : 5432,
-      user : 'postgres',
-      password : 'test',
-      database : 'faceblock'
+      user : process.env.DATABASE_USER,
+      password : process.env.DATABASE_PW,
+      database : process.env.DATABASE_DB
     }
     });
 

@@ -15,4 +15,4 @@ const handleProfileGet = (req, res, db) => {
 //     handleProfileGet
 // };
 
-export default handleProfileGet;
+export {handleProfileGet};

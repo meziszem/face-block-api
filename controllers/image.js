@@ -71,4 +71,4 @@ const handleApiCall = (req, res) => {
 //     handleApiCall, handleImage
 // }
 
-export default { handleApiCall, handleImage };
+export { handleApiCall, handleImage };
