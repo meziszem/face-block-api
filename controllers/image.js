@@ -1,4 +1,6 @@
 
+import fetch from 'node-fetch';
+
 const handleImage = (req, res, db) => {
     const { id } = req.body;
     db('users').where('id', '=', id)
