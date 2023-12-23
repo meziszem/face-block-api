@@ -65,10 +65,8 @@ const handleApiCall = (req, res) => {
     // .catch((err) => res.status(500).json("Unable to communicate with API"));
 }
 
-     
-  
+// module.exports = {
+//     handleApiCall, handleImage
+// }
 
-
-module.exports = {
-    handleApiCall, handleImage
-}
+export default { handleApiCall, handleImage };

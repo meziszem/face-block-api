@@ -11,6 +11,8 @@ const handleProfileGet = (req, res, db) => {
             .catch(err => res.status(400).json('not found'))
 }
 
-module.exports = {
-    handleProfileGet
-};
+// module.exports = {
+//     handleProfileGet
+// };
+
+export default handleProfileGet;
