@@ -59,16 +59,10 @@ const handleApiCall = (req, res) => {
         })
         
         .catch(error => res.status(400).json('unable to work with api'))
-    
-    //     .then((response) => response.text())
-    // .then((result) => {
-    //   res.json(result);
-    // })
-    // .catch((err) => res.status(500).json("Unable to communicate with API"));
 }
 
 // module.exports = {
 //     handleApiCall, handleImage
-// }
+// };
 
 export { handleApiCall, handleImage };

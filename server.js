@@ -5,7 +5,7 @@ import cors from 'cors';
 import knex from 'knex';
 // const express = require('express');
 // const bodyParser = require('body-parser');
-// const bcrypt = require('bcrypt-nodejs')
+// const bcrypt = require('bcrypt-nodejs');
 // const cors = require('cors');
 // const knex = require('knex');
 
@@ -24,6 +24,11 @@ const db = knex({
   connection: {
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
+      // host: '127.0.0.1',
+      // port: 5432,
+      // user: 'postgres',
+      // password: 'test',
+      // database: 'face-block',
       host : process.env.DATABASE_HOST,
       port : 5432,
       user : process.env.DATABASE_USER,
@@ -32,12 +37,13 @@ const db = knex({
     }
     });
 
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors())
 
 
-app.get('/', (req, res) => {res.send(database.users)} )
+app.get('/', (req, res) => {res.send(db.users)} )
 
 app.post('/signin', handleSignin(db, bcrypt) )
 app.post('/register', (req, res) =>{ handleRegister(req, res, db, bcrypt) })
@@ -45,5 +51,7 @@ app.get('/profile/:id', (req, res) =>{ handleProfileGet(req, res, db) })
 app.put('/image', (req, res) =>{ handleImage(req, res, db) })
 app.post('/imageurl', (req, res) => { handleApiCall(req, res) })
 
+
+const PORT = 3000;
 app.listen(3000, () => { console.log('app is running on port 3000'); })
 
