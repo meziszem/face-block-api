@@ -47,7 +47,6 @@ const returnClarifaiRequestOptions = (imageUrl) => {
         },
         body: raw
     };
-    // console.log(requestOptions)
     return requestOptions;
 }
 
@@ -61,8 +60,5 @@ const handleApiCall = (req, res) => {
         .catch(error => res.status(400).json('unable to work with api'))
 }
 
-// module.exports = {
-//     handleApiCall, handleImage
-// };
 
 export { handleApiCall, handleImage };

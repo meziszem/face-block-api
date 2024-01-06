@@ -3,32 +3,19 @@ import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt-nodejs';
 import cors from 'cors';
 import knex from 'knex';
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const bcrypt = require('bcrypt-nodejs');
-// const cors = require('cors');
-// const knex = require('knex');
+
 
 import {handleRegister} from './controllers/register.js';
 import {handleSignin} from './controllers/signin.js';
 import {handleProfileGet} from './controllers/profile.js';
 import { handleApiCall, handleImage } from './controllers/image.js';
 
-// const register = require('./controllers/register');
-// const signin = require('./controllers/signin');
-// const profile = require('./controllers/profile');
-// const image = require('./controllers/image');
     
 const db = knex({
     client: 'pg',
   connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
-      // host: '127.0.0.1',
-      // port: 5432,
-      // user: 'postgres',
-      // password: 'test',
-      // database: 'face-block',
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
       host : process.env.DATABASE_HOST,
       port : 5432,
       user : process.env.DATABASE_USER,
